@@ -22,8 +22,9 @@
         if (!uri) {
             document.getElementById('error').innerText = 'No URI provided ;(';
         } else {
+            const decodedUri = decodeURIComponent(uri);
             document.getElementById('success').innerText = 'Redirecting :D...';
-            window.location.replace(uri);
+            window.location.replace(decodedUri);
         }
     </script>
 </body>
