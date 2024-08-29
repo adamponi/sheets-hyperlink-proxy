@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sheets Hyperlink Proxy</title>
+</head>
+<body>
+    <h1>Sheets Hyperlink Proxy</h1>
+    <p>
+        This is a simple proxy to allow Google Sheets to open hyperlinks with custom protocols,
+        as Google only allows http://, https://, mailto:, aim://, ftp://, gopher://, telnet://, and news://.
+        (<a href="https://support.google.com/docs/answer/3093313?hl=en">Source</a>)</p>
+    </p>
+    <p>Usage: <code>https://kladdkaka.github.io/sheets-hyperlink-proxy/?uri=sms:1234567890</code></p>
+    <p>Source Code: <a href="https://github.com/Kladdkaka/sheets-hyperlink-proxy">GitHub</a></p>
+    <h3 id="error" style="color: red;"></h3>
+    <h3 id="success" style="color: green;"></h3>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const uri = urlParams.get('uri');
+
+        if (!uri) {
+            document.getElementById('error').innerText = 'No URI provided ;(';
+        } else {
+            document.getElementById('success').innerText = 'Redirecting :D...';
+            window.location.replace(uri);
+        }
+    </script>
+</body>
+</html>
